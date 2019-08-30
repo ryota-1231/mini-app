@@ -1,0 +1,15 @@
+<div class="main-box">
+<div class="contents-row">
+<div class="box">
+    <%= form_for(@article, html:{class: "boxes"}) do %>
+      <h3>
+        編集する
+      </h3>
+      <input placeholder="Title" type="text" name="title" value="<%= @article.title %>" autofocus="true">
+      <input placeholder="Image Url" type="text" name="image" value="<%= @article.image %>" autofocus="true">
+      <textarea cols="30" name="text" placeholder="text" rows="10"><%= @article.text %></textarea>
+      <input type="submit" value="SENT" class="btn">
+    <% end %>
+    </div>
+  </div>
+</div>

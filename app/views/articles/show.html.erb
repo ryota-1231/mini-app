@@ -1,0 +1,53 @@
+<div class=main>
+<div class=main-box>
+<div class="contents-row" >
+      <div class="content_post">
+        <%= image_tag @article.image, size: '300x200'%>
+        <div class="article-show"> 
+        <% if user_signed_in? && current_user.id == @article.user_id %>
+        <div class="more">
+          <span><%= image_tag 'arrow_top.png' %></span>
+          <ul class="more_list">
+             <li>
+              <%= link_to '編集', "/articles/#{@article.id}/edit", method: :get %>
+            </li>
+            <li>
+              <%= link_to '削除', "/articles/#{@article.id}", method: :delete %>
+            </li>
+          </ul>
+        </div>
+        <% end %>
+        <span class="title"><%= @article.title %></span>
+        <div class="text">
+        <%= simple_format(@article.text) %>
+        </div>
+        <span class="user-name">
+        <a href="/users/<%= @article.user.id %>">
+            <span>投稿者</span>
+            <%= @article.user.nickname %>
+        </a>
+        </span>
+        </div>
+      </div>
+      
+      <div class="container"> 
+    <!-- ここからフォーム -->
+    <% if current_user %>
+      <%= form_tag("/articles/#{@article.id}/comments", method: :post) do %>
+        <textarea class="comments-textarea" cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
+        <input type="submit" value="SENT" class="btn">
+      <% end %>
+    <% end %>
+     <div class="comments">   
+      <h4>＜コメント一覧＞</h4>
+      <% if @comments %>
+        <% @comments.each do |comment| %>
+          <p>
+            <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+            <%= comment.text %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  </div>

@@ -1,0 +1,27 @@
+
+<div class="header__main">
+  <div class="header__main__box">
+    <div class="sub-title">
+     <h2>Share Spot
+     </h2>
+    </div>
+    <div class="title">
+     <h1>Engineer's Blog
+     </h1>
+    </div>
+    <p>多くの人に自分の知識や経験を届けよう！</p>
+  </div>
+</div>
+</div>
+</header>
+
+<div class=main>
+<div class=main-box>
+<div class="contents-row" >
+    <% @articles.each do |article| %>
+       <%= render partial: "article", locals: { article: article } %>
+    <% end %>
+    <div class="paging">
+     <%= paginate(@articles) %>
+     </div>
+  </div>

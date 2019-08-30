@@ -1,0 +1,38 @@
+<div class="content_post">
+        <%=image_tag article.image, size: '300x200'%>
+        <div class=article> 
+         <span class="title"><%= article.title %></span>
+        
+        <%= simple_format(article.text) %>
+        
+        <div class="user-data">
+          <div class="user-name">
+          <a href="/users/<%= article.user_id %>">
+          <span>投稿者</span><%= article.user.nickname %></a>
+          </div>
+          <div class="comment--length">
+            <span>コメント：<%= article.comments.length %>件</span>
+          </div>
+          <div class="pots__day">
+            <span>更新日：<%= article.updated_at %></span>
+          </div>
+        </div>
+
+        <div class="more">
+          <span><%= image_tag 'arrow_top.png' %></span>
+          <ul class="more_list">
+            <li>
+              <%= link_to '詳細', "/articles/#{article.id}", method: :get %>
+            </li> 
+            <% if user_signed_in? && current_user.id == article.user_id %>
+             <li>
+              <%= link_to '編集', "/articles/#{article.id}/edit", method: :get %>
+            </li>
+            <li>
+              <%= link_to '削除', "/articles/#{article.id}", method: :delete %>
+            </li>
+          </ul>
+        <% end %>
+        </div>
+        </div>
+      </div>

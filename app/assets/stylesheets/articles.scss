@@ -1,0 +1,11 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@font-face {
+  font-family: 'ほのか明朝';
+  src: url('font_1_honokamin.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import './reset'

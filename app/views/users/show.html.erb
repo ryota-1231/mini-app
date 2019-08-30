@@ -1,0 +1,14 @@
+
+<div class=main>
+  <div class=main-box>
+    <div class="contents-row" >
+    <p class="name-title"><%= @nickname %>さんの投稿一覧</p>
+      <% @articles.each do |article| %>
+         <%= render partial: "articles/article", locals: { article: article } %>
+      <% end %>
+      <div class="paging">
+       <%= paginate(@articles) %>
+      </div>
+    </div>
+  </div>
+</div>
