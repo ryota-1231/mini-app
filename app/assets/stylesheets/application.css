@@ -12,6 +12,7 @@ body {
 ul{
   list-style: none;
 }
+
 /* トップページimage */
 .header__main {
   background-image: url(https://cdn.pixabay.com/photo/2017/05/19/06/22/desktop-2325627_1280.jpg);
@@ -51,7 +52,7 @@ ul{
 .header__main__box {
   margin: 0 auto;
   text-align: center;
-  padding-top:250px;
+  padding-top:300px;
 }
 
 /* ここからブログ */
@@ -80,6 +81,8 @@ ul{
   width:400px;
   text-align: left;
 }
+
+/* 一覧テキストの行数指定 */
 .article p {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -169,6 +172,7 @@ textarea {
   margin-bottom: 10px;
 }
 
+/* ボタンアクション */
 .btn {
   width: 150px;
   color: #fff;
